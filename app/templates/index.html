@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<!-- Register Service Worker -->
+<script>
+	if ('serviceWorker' in navigator) {
+		window.addEventListener('load', function() {
+			navigator.serviceWorker.register('/static/sw.js')
+			.then(function() { console.log("Service Worker Registered."); });
+		});
+	}
+</script>
+<!-- General Settings: -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="author" content="GitHub.Com/Daniel0547 • GitHub.Com/FredSRocha" />
+<title>Passe Aqui: Inclusão e Acessibilidade de Pessoas com Deficiência</title>
+<meta name="description" content="Passe Aqui, a solução colaborativa para auxiliar pessoas com deficiência a se locomoverem sem limites, vá a todos os lugares.">
+<link rel="canonical" href="https://passeaquiapp.com/index.html?v=PYeMroxGLa">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<!-- Favicons (https://realfavicongenerator.net/favicon_result?file_id=p1df09qv2j16lg89s1d31ctods06#.XR7lRHVKg5k): -->
+<link rel="apple-touch-icon" sizes="180x180" href="/static/images/apple-touch-icon.png?v=PYeMroxGLa">
+<link rel="icon" type="image/png" sizes="32x32" href="/static/images/favicon-32x32.png?v=PYeMroxGLa">
+<link rel="icon" type="image/png" sizes="16x16" href="/static/images/favicon-16x16.png?v=PYeMroxGLa">
+<link rel="mask-icon" href="safari-pinned-tab.svg?v=PYeMroxGLa" color="#118cba">
+<link rel="shortcut icon" href="favicon.ico?v=PYeMroxGLa">
+<meta name="apple-mobile-web-app-title" content="Passe Aqui">
+<meta name="application-name" content="Passe Aqui">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="msapplication-TileImage" content="mstile-144x144.png?v=PYeMroxGLa">
+<meta name="theme-color" content="#ffffff">
+<!-- PWA: -->
+<link rel="manifest" href="/static/manifest.json?v=PYeMroxGLa">
+<!-- Apple Status Bar (Translucent): -->
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Passe Aqui">
+<!-- Apple Splashpages: -->
+<link rel="profile" href="https://gmpg.org/xfn/11" />
+<link rel="apple-touch-startup-image" href="/static/images/launch-640x1136.png?v=PYeMroxGLa" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+<link rel="apple-touch-startup-image" href="/static/images/launch-750x1294.png?v=PYeMroxGLa" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+<link rel="apple-touch-startup-image" href="/static/images/launch-1242x2148.png?v=PYeMroxGLa" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+<link rel="apple-touch-startup-image" href="/static/images/launch-1125x2436.png?v=PYeMroxGLa" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+<link rel="apple-touch-startup-image" href="/static/images/launch-1536x2048.png?v=PYeMroxGLa" media="(min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)">
+<link rel="apple-touch-startup-image" href="/static/images/launch-1668x2224.png?v=PYeMroxGLa" media="(min-device-width: 834px) and (max-device-width: 834px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)">
+<link rel="apple-touch-startup-image" href="/static/images/launch-2048x2732.png?v=PYeMroxGLa" media="(min-device-width: 1024px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)">
+<!-- Open Graph Protocol (http://ogp.me/): -->
+<meta property="fb:app_id" content="181893415736399">
+<meta property="og:url" content="https://passeaquiapp.com">
+<meta property="og:type" content="Website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Passe Aqui">
+<meta property="og:title" content="Passe Aqui: Pelo direito de ir e vir!">
+<meta property="og:description" content="Passe Aqui, a solução colaborativa para auxiliar pessoas com deficiência a se locomoverem sem limites, vá a todos os lugares.">
+<meta property="og:image" content="https://passeaquiapp.com/ads-fb-05072019.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="400">
+<meta property="og:image:height" content="300">
+<meta property="og:image:alt" content="Passe Aqui, a solução colaborativa para auxiliar pessoas com deficiência a se locomoverem sem limites, vá a todos os lugares.s">
+<!-- Twitter Cards - Summary Large Image Card (https://developer.twitter.com/en/docs/tweets/optimize-with-cards/guides/getting-started.html): -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@PasseAquiApp">
+<meta name="twitter:creator" content="@PasseAquiApp">
+<meta name="twitter:title" content="Está difícil estacionar? Não perca mais tempo!">
+<meta name="twitter:description" content="Passe Aqui, a solução colaborativa para auxiliar pessoas com deficiência a se locomoverem sem limites, vá a todos os lugares.">
+<meta name="twitter:image" content="https://passeaquiapp.com/ads-tt-05072019.jpg">
+<!-- Styles -->
+<link rel="stylesheet" type="text/css" href="/static/css/style.css">
+<link rel="stylesheet" href="/static/leaflet/leaflet.css" />
+<link rel="stylesheet" href="/static/materialize/css/materialize.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Roboto+Condensed:300,400,700|Material+Icons">
+<!-- SEO (JsonLD): -->
+<script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"NewsArticle",
+    "headline":"Passe Aqui, a solução colaborativa para auxiliar pessoas com deficiência a se locomoverem sem limites, vá a todos os lugares.",
+    "author":"Passe Aqui",
+    "datePublished":"2019-07-07",
+    "dateModified":"2019-07-07",
+    "dateline":"BH, BRAZIL",
+    "mainEntityOfPage":"true",
+    "articleSection":"Internet",
+    "description":"Passe Aqui: Pelo direito de ir e vir!",
+    "articleBody":"O Passe Aqui possui funcionalidades únicas que o diferenciam dos demais. As outras aplicações possuem avaliação, classificação de locais e  sinalizam dificuldades, mas nenhuma delas leva o usuário ao seu destino com segurança. Trabalhamos com empatia pelo direito de ir e vir das pessoas com necessidades especiais, tornando a mobilidade uma experiência prática, engajante, rápida e independente para aqueles que querem movimentar-se para todos os lugares.",
+    "image":{
+      "@type":"imageObject",
+      "url":"https://passeaquiapp.com/logo_80.png",
+      "height":"80",
+      "width":"80"
+    },
+    "publisher":{
+      "@type":"Organization",
+      "name":"Passe Aqui",
+      "logo":{
+        "@type":"imageObject",
+        "url":"https://passeaquiapp.com/logo_80.png"
+      }
+    }
+  }
+</script>
+<style>
+.leaflet-control-zoom.leaflet-bar.leaflet-control {
+	margin-top: 60px;
+}
+.robotoCondensed {
+  font-family: 'Roboto Condensed', sans-serif;
+}
+#searchPlace {
+	position: absolute;
+	top: 0;
+	z-index: 99999;
+	background: #fff;
+	border: none;
+	/*padding: 0.25em 1em;*/
+	width: 60%;
+	padding-left: 1em;
+}
+#search {
+	position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 99999;
+    width: 40%;
+    height: 44px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 3;
+		color: white;
+    background-color: #70c2e8;
+		text-align: center;
+
+}
+#search .material-icons {
+	top: 7px;
+  position: relative;
+  left: -10px;
+}
+#report-problem {
+	position: absolute;
+	bottom: 100px;
+    right: 10px;
+    z-index: 99999;
+    width: 40%;
+    height: 44px;
+    font-weight: 600;
+    font-size: 12px;
+		color: white;
+    background-color: #d70000;
+		text-align: center;
+		width: 70px;
+    height: 70px;
+		border-radius: 50%;
+		padding-top: 9px;
+}
+</style>
+</head>
+<body>
+
+		<div id="map" class="map"></div>
+		<input type="text" id="searchPlace" placeholder="De onde?"/>
+		<a id="search" class="robotoCondensed" onclick="searchandgo()"><i class="material-icons">search</i> Pesquisar</a>
+	<a id="report-problem" onclick="submitreport()"><i class="material-icons">report_problem</i><br>Reportar</a>
+		<!--
+	<div class="row screen">
+	<div class="col s12 l8">
+		<div id="map" class="map"></div>
+	</div>
+	<div class="col s12 l4 formulario">
+		<div class="row">
+		<h5 class="index_text">Ferramenta para roteamento acessível</h5>
+		</div>
+		<div class="row">
+		<p class="index_text">Posicione o marcador de inicio da rota no mapa, em seguida o marcador do destino</p>
+		</div>
+	-->
+		<form id="input_form" action="/build" method="post">
+			<input type="hidden" name="origem_lat" id="origem_lat">
+			<input type="hidden" name="origem_lng" id="origem_lng">
+			<input type="hidden" name="destino_lat" id="destino_lat">
+			<input type="hidden" name="destino_lng" id="destino_lng">
+		</form>
+
+		<form id="report_form" action="/report" method="post">
+			<input type="hidden" name="report_lat" id="report_lat">
+			<input type="hidden" name="report_lng" id="report_lng">
+		</form>
+  <!--
+		<div class="row">
+			<center>
+				<a class="waves-effect waves-light btn" onclick="submitpoint()">Pronto</a>
+			</center>
+		</div>
+	-->
+	<!--</div>
+	</div>-->
+	<a class="robotoCondensed btn" onclick="submitpoint()" style="background-color: #00a1d7;position: absolute;bottom: 0; z-index: 99999; width: 100%;height: 52px; font-weight: 700; font-size: 22px; line-height: 2.5;">Criar Rota</a>
+	<script>
+		let longitude={{longitude}};
+		let latitude={{latitude}};
+		navigator.geolocation.getCurrentPosition(function(position) {
+		  latitude=position.coords.latitude;
+			longitude=position.coords.longitude;
+			updatemap(latitude,longitude,17)
+		});
+	</script>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="/static/leaflet/leaflet.js"></script>
+	<script src="/static/js/index.js"></script>
+	<script src="/static/materialize/js/materialize.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			let i=0;
+			let toastContent=[];
+			{% with messages = get_flashed_messages(with_categories=true) %}
+			{% if messages %}
+			{% for category, message in messages %}
+			alert('{{message|safe}}');
+			{% endfor %}
+			{% endif %}
+			{% endwith %}
+			let problemas = {{problemas|safe}};
+			for(let i=0;i<problemas.length;i++){
+  			addprob(problemas[i][0],problemas[i][1],problemas[i][3],problemas[i][2]);
+			};
+		});
+	</script>
+</body>
+</html>

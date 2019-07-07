@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+  <meta charset="UTF-8">
+  <title>Leaflet Heat</title>
+<link rel="stylesheet" href="/static/leaflet/leaflet.css" />
+<link rel="stylesheet" href="/static/materialize/css/materialize.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="/static/height/node_modules/leaflet.heightgraph/src/L.Control.Heightgraph.css"/>
+</head>
+<body>
+	<div class="row screen">
+	<div class="col s12 l8">
+		<div id="map" class="map"></div>
+	</div>
+	<div class="col s12 l4 formulario">
+		<div class="row">
+		<h5 class="index_text">Ferramenta para roteamento acessível</h5>
+		</div>
+		<div class="row">
+		<p class="index_text">Posicione o marcador de inicio da rota no mapa, em seguida o marcador do destino</p>
+		</div>
+		<form id="input_form" action="/build" method="post">
+			<input type="hidden" name="origem_lat" id="origem_lat">
+			<input type="hidden" name="origem_lng" id="origem_lng">
+			<input type="hidden" name="destino_lat" id="destino_lat">
+			<input type="hidden" name="destino_lng" id="destino_lng">
+		</form>
+		<div class="row">
+			<center>
+				<a class="waves-effect waves-light btn" onclick="submitpoint()">Pronto</a>
+			</center>
+		</div>
+	</div>
+	</div>
+	<script>
+		let longitude={{longitude}};
+		let latitude={{latitude}};
+	</script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="/static/leaflet/leaflet.js"></script>
+	<script src="/static/js/index.js"></script>
+	<script src="/static/height/node_modules/leaflet.heightgraph/src/L.Control.Heightgraph.js"></script>
+	<script src="/static/materialize/js/materialize.js"></script>
+</body>
+</html>

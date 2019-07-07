@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- General Settings: -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="author" content="GitHub.Com/Daniel0547 • GitHub.Com/FredSRocha" />
+<title>Passe Aqui: Inclusão e Acessibilidade de Pessoas com Deficiência</title>
+<meta name="description" content="Passe Aqui, a solução colaborativa para auxiliar pessoas com deficiência a se locomoverem sem limites, vá a todos os lugares.">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Roboto+Condensed:300,400,700|Material+Icons">
+  <style>
+    body {
+  font-family: 'Roboto Condensed', sans-serif;
+    }
+    .send-button {
+      background-color: #00a1d7;
+    box-shadow: none;
+    border-radius: 0;
+    }
+    .col.l12 {
+      width: 100%;
+    }
+    #desc:focus {
+      border-bottom: 1px solid #00a1d7;
+      box-shadow: none;
+    }
+    ul.dropdown-content.select-dropdown li:not(.disabled) span {
+      -webkit-appearance: none;  /* Remove estilo padrão do Chrome */
+   -moz-appearance: none; /* Remove estilo padrão do FireFox */
+   appearance: none; /* Remove estilo padrão do FireFox*/
+      color: #666 !important;
+    }
+  </style>
+</head>
+<body>
+
+<form id="form1" method="POST" action="/register">
+    <div class="row">
+      <div class="col l12"></div>
+      <div class="col l12">
+        <h3>Reportar Problema</h3>
+      </div>
+    </div>
+  		<div class="row">
+        <div class="col l12"></div>
+        <div class="col l12">
+				<label for="gravidade">Gravidade do Problema</label>
+		    <select name="gravidade" id="gravidade">
+		      <option value="" disabled selected>Escolha uma opção</option>
+		      <option value="1">Não consegui passar por este local, tive que fazer um desvio</option>
+		      <option value="2">Consegui passar com dificuldades</option>
+		      <option value="3">Consegui passar mas me senti incomodado</option>
+		    </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col l12"></div>
+        <div class="col l12">
+					<label for="desc">Descrição:</label>
+					<textarea id="desc" name="desc" class="materialize-textarea"></textarea>
+        </div>
+      </div>
+			<input type="hidden" name="report_lat" id="report_lat" value="{{lat}}">
+			<input type="hidden" name="report_lng" id="report_lng" value="{{lng}}">
+      <div class="row">
+        <div class="col l12"></div>
+        <div class="col l12">
+          <center>
+        	 <a class="send-button btn" onclick="$('#form1').submit()">Enviar <i class="material-icons right">send</i></a>
+        	</center>
+        </div>
+      </div>
+    </div>
+</form>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<script>
+
+  $('select').material_select();
+	$('#desc').trigger('autoresize');
+
+  $('#form1').submit(function () {
+	let gravidade = $.trim($('#gravidade').val());
+	if (gravidade  === '') {
+		alert('Você deve definir a gravidade.');
+		return false;
+	}
+  return true;
+});
+</script>
+</body>
+</html>

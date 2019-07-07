@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<!-- General Settings: -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="author" content="GitHub.Com/Daniel0547 • GitHub.Com/FredSRocha" />
+<title>Passe Aqui: Inclusão e Acessibilidade de Pessoas com Deficiência</title>
+<meta name="description" content="Passe Aqui, a solução colaborativa para auxiliar pessoas com deficiência a se locomoverem sem limites, vá a todos os lugares.">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<link rel="stylesheet" type="text/css" href="/static/css/style.css">
+<link rel="stylesheet" href="/static/leaflet/leaflet.css" />
+<link rel="stylesheet" href="/static/materialize/css/materialize.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="/static/height/node_modules/leaflet.heightgraph/src/L.Control.Heightgraph.css"/>
+
+<style>
+	/*
+	svg.heightgraph-container {
+    position: absolute;
+		left: 0%;
+		bottom: 0;
+    width: 100%;
+    bottom: -12px;
+    border-radius: 0;
+	}
+	*/
+	.back-button {
+		position: absolute;
+		bottom: 1em;
+    left: 1em;
+    width: 52px;
+    height: 52px;
+    z-index: 99999;
+    padding: 1em 2em;
+    background: #70c2e8;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: 50%;
+    color: white;
+	}
+	.back-button .material-icons {
+	position: relative;
+    right: 12px;
+		top: -1px;
+    font-weight: 700;
+	}
+</style>
+</head>
+<body>
+		<div id="map" class="map"></div>
+		<a href="/" class="back-button"><i class="material-icons">arrow_back</i></a>
+		<!--
+	<div class="row screen">
+	<div class="col s12 l8">
+		<div id="map" class="map"></div>
+	</div>
+	<div class="col s12 l4 formulario">
+		<div class="row">
+		<h5 class="index_text">Ferramenta para roteamento acessível</h5>
+		</div>
+		<div class="row">
+		<p class="index_text">Posicione o marcador de inicio da rota no mapa, em seguida o marcador do destino</p>
+		</div>
+	-->
+		<form id="input_form" action="/build" method="post">
+			<input type="hidden" name="origem_lat" id="origem_lat">
+			<input type="hidden" name="origem_lng" id="origem_lng">
+			<input type="hidden" name="destino_lat" id="destino_lat">
+			<input type="hidden" name="destino_lng" id="destino_lng">
+		</form>
+		<!--
+		<div class="row">
+			<center>
+				<a class="waves-effect waves-light btn" onclick="submitpoint()">Pronto</a>
+			</center>
+		</div>
+	</div>
+	</div>
+-->
+	<script>
+		let longitude={{longitude}};
+		let latitude={{latitude}};
+		let longitudedest={{longitudedest}};
+		let latitudedest={{latitudedest}};
+		let points={{points}};
+	</script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="/static/leaflet/leaflet.js"></script>
+	<script src="/static/materialize/js/materialize.js"></script>
+	<script src="https://d3js.org/d3-selection.v1.min.js"></script>
+	<script src="https://d3js.org/d3-array.v2.min.js"></script>
+	<script src="https://d3js.org/d3-color.v1.min.js"></script>
+	<script src="https://d3js.org/d3-drag.v1.min.js"></script>
+	<script src="https://d3js.org/d3-dispatch.v1.min.js"></script>
+	<script src="https://d3js.org/d3-scale.v2.min.js"></script>
+	<script src="https://d3js.org/d3-axis.v1.min.js"></script>
+	<script src="https://d3js.org/d3-format.v1.min.js"></script>
+	<script src="https://d3js.org/d3-shape.v1.min.js"></script>
+	<script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
+	<script src="https://d3js.org/d3-path.v1.min.js"></script>
+	<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+	<script src="/static/height/node_modules/leaflet.heightgraph/example_mappings.js"></script>
+	<script src="/static/height/node_modules/leaflet.heightgraph/src/L.Control.Heightgraph.js"></script>
+	<script src="/static/js/result.js"></script>
+	<script>
+	let problemas = {{problemas|safe}};
+	for(let i=0;i<problemas.length;i++){
+		addprob(problemas[i][0],problemas[i][1],problemas[i][3],problemas[i][2]);
+	};
+	</script>
+</body>
+</html>
